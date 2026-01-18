@@ -16,11 +16,13 @@
         
         body {
             margin: 0;
-            padding: 0;
+            /* Added padding so text doesn't touch the top/bottom edges when scrolling */
+            padding: 60px 0; 
             background-color: #fbfbfb; 
             color: #333333; 
             font-family: 'Lato', sans-serif;
-            height: 100vh;
+            /* CHANGED: 'min-height' allows the page to grow as long as needed */
+            min-height: 100vh; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -170,6 +172,7 @@
 
 </body>
 </html>
+
 
 
 
