@@ -133,13 +133,20 @@
         }
         /* --- Image Styles --- */
         .profile-pic {
-            width: 220px;       /* Increased size */
-            height: 220px;      /* Keep height same as width for a perfect circle */
-            object-fit: cover;  /* Ensures face isn't stretched */
+            width: 220px;       
+            height: 220px;      
+            object-fit: cover;  
+            
+            /* NEW: Adjusts the photo inside the circle */
+            /* 50% = Center (Left/Right) */
+            /* 20% = Near the Top (Up/Down) */
+            object-position: 50% 20%; 
+            
             border-radius: 50%; 
-            border: 6px solid #e8f5e9; /* Made the border slightly thicker to match */
+            border: 6px solid #e8f5e9; 
             margin-bottom: 25px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 40px; 
         }
 
         .action-pic {
@@ -208,6 +215,7 @@
 
 </body>
 </html>
+
 
 
 
