@@ -34,33 +34,29 @@
             padding: 40px;
         }
 
+/* --- Header Typography --- */
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: #0F4C3A; /* Deep Emerald Green */
-            margin-bottom: 15px;
-            letter-spacing: -1px;
+            font-size: 2.8rem;      /* Make the name big */
+            font-weight: 700;       /* Bold and confident */
+            color: #2c3e50;         /* A professional dark slate blue/grey */
+            margin-bottom: 10px;    /* Pull the subtitle closer */
+            letter-spacing: -1px;   /* Tighten letters slightly for a modern look */
         }
 
         h2 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: #666666;
+            font-size: 0.95rem;     /* Smaller than the name */
+            color: #7f8c8d;         /* Muted grey for elegance */
+            text-transform: uppercase; /* All caps looks very premium */
+            letter-spacing: 2px;    /* Spaced out letters (very "finance" style) */
+            font-weight: 500;       /* Not too bold, not too thin */
             margin-top: 0;
-            margin-bottom: 30px;
-            font-weight: 400;
-            border-bottom: 1px solid #ddd; 
-            display: inline-block;
-            padding-bottom: 10px;
+            margin-bottom: 40px;    /* Good space before the paragraph starts */
+            line-height: 1.6;       /* Breathing room for the two lines */
         }
-
-        p {
-            font-size: 1.15rem;
-            line-height: 1.7; 
-            margin-bottom: 30px; /* Reduced slightly to fit skills */
-            color: #4a4a4a;
-            font-weight: 300;
+        
+        .accent {
+            color: #2980b9;         /* A subtle blue highlight for the separator */
+            margin: 0 8px;          /* Space around the dot */
         }
 
 /* --- Header for Skills --- */
@@ -185,10 +181,16 @@
 </head>
 <body>
     <div class="container">
+        
         <img src="profile.PNG" alt="Pierpaolo Mirizi" class="profile-pic">
+        
         <h1>Pierpaolo Mirizi</h1>
         
-        <h2><strong>Business School Student</strong> • <strong>BSc (Hons) Banking & Digital Finance</strong></h2>
+        <h2>
+            Business School Student 
+            <span class="accent">•</span> 
+            BSc (Hons) Banking & Digital Finance
+        </h2>
         
         <p>
             Hi! I am a self-taught finance enthusiast who decided to formalize my capabilities and widen my skills at the University of Sussex. 
@@ -272,6 +274,7 @@
 
 </body>
 </html>
+
 
 
 
