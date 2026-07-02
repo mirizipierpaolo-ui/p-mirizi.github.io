@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,91 +10,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS STYLES --- */
-        
         body {
             margin: 0;
-            /* Added padding so text doesn't touch the top/bottom edges when scrolling */
-            padding: 60px 0; 
-            background-color: #fbfbfb; 
-            color: #333333; 
+            padding: 60px 0;
+            background-color: #fbfbfb;
+            color: #333333;
             font-family: 'Lato', sans-serif;
-            /* CHANGED: 'min-height' allows the page to grow as long as needed */
-            min-height: 100vh; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 650px; 
+            max-width: 650px;
             padding: 40px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-/* --- Header Typography --- */
         h1 {
-            font-size: 2.8rem;      /* Make the name big */
-            font-weight: 700;       /* Bold and confident */
-            color: #2c3e50;         /* A professional dark slate blue/grey */
-            margin-bottom: 10px;    /* Pull the subtitle closer */
-            letter-spacing: -1px;   /* Tighten letters slightly for a modern look */
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         h2 {
-            font-size: 0.95rem;     /* Smaller than the name */
-            color: #7f8c8d;         /* Muted grey for elegance */
-            text-transform: uppercase; /* All caps looks very premium */
-            letter-spacing: 2px;    /* Spaced out letters (very "finance" style) */
-            font-weight: 500;       /* Not too bold, not too thin */
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
             margin-top: 0;
-            margin-bottom: 40px;    /* Good space before the paragraph starts */
-            line-height: 1.6;       /* Breathing room for the two lines */
-        }
-        
-        .accent {
-            color: #2980b9;         /* A subtle blue highlight for the separator */
-            margin: 0 8px;          /* Space around the dot */
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
-/* --- Header for Skills --- */
+        .accent {
+            color: #2980b9;
+            margin: 0 8px;
+        }
+
         h3 {
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #0F4C3A; /* Matches your brand green */
+            color: #0F4C3A;
             margin-bottom: 15px;
             font-weight: 700;
         }
         
-        /* --- NEW: Skills Section Styles --- */
         .skills-container {
-            margin-bottom: 40px; 
+            margin-bottom: 40px;
             display: flex;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 10px; 
+            gap: 10px;
         }
 
         .skill-chip {
-            background-color: #e8f5e9; /* Pale green background */
-            color: #0F4C3A; /* Deep green text */
+            background-color: #e8f5e9;
+            color: #0F4C3A;
             padding: 8px 16px;
-            border-radius: 6px; 
+            border-radius: 6px;
             font-size: 0.85rem;
-            font-weight: 700; 
+            font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
-        /* Button Styling */
         .btn {
             display: inline-block;
             text-decoration: none;
-            border: 2px solid #0F4C3A; 
+            border: 2px solid #0F4C3A;
             color: #0F4C3A;
             padding: 12px 30px;
-            border-radius: 50px; 
+            border-radius: 50px;
             font-weight: bold;
             font-size: 0.9rem;
             letter-spacing: 1px;
@@ -118,77 +106,73 @@
             }
         }
 
-        /* --- Footer Styles --- */
         .footer {
-            margin-top: 60px; /* Space between buttons and footer */
-            border-top: 1px solid #eee; /* A subtle divider line */
+            margin-top: 60px;
+            border-top: 1px solid #eee;
             padding-top: 20px;
-            font-size: 0.75rem; /* Small, elegant text */
-            color: #999999; /* Light grey */
+            font-size: 0.75rem;
+            color: #999999;
             letter-spacing: 1px;
         }
-        /* --- Image Styles --- */
+
         .profile-pic {
-            width: 220px;       
-            height: 220px;      
-            object-fit: cover;  
-            
-            /* NEW: Adjusts the photo inside the circle */
-            /* 50% = Center (Left/Right) */
-            /* 20% = Near the Top (Up/Down) */
-            object-position: 50% 20%; 
-            
-            border-radius: 50%; 
-            border: 6px solid #e8f5e9; 
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            object-position: 50% 20%;
+            border-radius: 50%;
+            border: 6px solid #e8f5e9;
             margin-bottom: 25px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 40px; 
+            margin-top: 40px;
         }
 
         .action-pic {
-            width: 100%;        /* Fits the width of the container */
-            max-width: 500px;   /* But doesn't get too huge on desktop */
+            width: 100%;
+            max-width: 500px;
             height: auto;
-            border-radius: 12px; /* Rounded corners */
+            border-radius: 12px;
             margin-top: 20px;
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }      
+        }
+
         .cert-pic {
             width: 100%;
-            max-width: 300px; /* Keeps it from getting too huge */
+            max-width: 300px;
             height: auto;
-            border: 1px solid #ddd; /* Thin grey border */
-            padding: 5px; /* White space like a frame */
+            border: 1px solid #ddd;
+            padding: 5px;
             background-color: #fff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin-top: 15px;
             margin-bottom: 30px;
-            display: block; /* Ensures it sits on its own line */
-            margin-left: auto; /* These two lines center the image */
+            display: block;
+            margin-left: auto;
             margin-right: auto;
         }
+
         .large-feature-pic {
-            width: 100%;        /* Forces it to fit the container width */
-            height: auto;       /* Maintains aspect ratio */
-            border-radius: 12px; 
-            margin-top: 25px;   /* Space above image */
-            margin-bottom: 25px;/* Space below image */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* A slightly deeper shadow for impact */
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
             display: block;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <img src="profile.PNG" alt="Pierpaolo Mirizi" class="profile-pic">
         
         <h1>Pierpaolo Mirizi</h1>
         
         <h2>
             Business School Student
-            <br> <span style="font-size: 0.9em; opacity: 0.8; display: inline-block; margin-top: 5px;">
+            <br>
+            <span style="font-size: 0.9em; opacity: 0.8; display: inline-block; margin-top: 5px;">
                 BSc (Hons) Banking & Digital Finance
             </span>
         </h2>
@@ -212,25 +196,28 @@
             <span class="skill-chip">AI and Data savvy</span>
             <span class="skill-chip">ESG awareness</span>
         </div>
+
         <img src="action.PNG" alt="Study Trip to Prague" class="action-pic">
+
         <p style="margin-top: 30px; margin-bottom: 20px; font-size: 1rem;">
             Alongside my studies, I demonstrate <strong>leadership</strong> and <strong>time management</strong> by working part-time as a Team Leader in the hospitality sector. 
             I am actively seeking work experience to gain practical insight into roles related to my studies. While I cannot relocate at this time due to family commitments, 
             I hold a full driving license and am fully available to commute.
         </p>
+
         <img 
-            src="YOUR-IMAGE-URL-OR-PATH"
+            src="prague_sceenshot.png"
             alt="Study trip to Prague including Charles University and Skoda factory visit"
             width="900"
             height="600"
             loading="lazy"
-            style="display: block; width: 100%; max-width: 900px; height: auto; margin: 0 auto 40px; border-radius: 12px;"
+            class="large-feature-pic"
         />
+
         <p style="margin-top: 0; margin-bottom: 40px; font-size: 1rem;">
             I am deeply committed to the university community as the <strong>Student Representative</strong> for my cohort for the second year in a row. 
             In this role, I act as a <strong>liaison between my cohort and the faculty</strong>, advocating for student needs and collaborating to improve the academic experience. 
             This responsibility continues to sharpen my <strong>negotiation</strong> and <strong>public speaking skills</strong>, while allowing me to network within the faculty and gain deep knowledge of the services available to students.
-            <img src="certificate.png" alt="Student Rep Certificate" class="cert-pic">
         </p>
 
         <p style="margin-top: 0; margin-bottom: 40px; font-size: 1rem;">
@@ -239,75 +226,43 @@
             I had the chance to attend a lecture on monetary policy at Charles University and take a guided tour of the Skoda factory.
             It provided a valuable opportunity to learn new things, but also to network with fellow students and the faculty members who led the trip. 
         </p>
+
         <a href="mailto:pmirizi@yahoo.com" class="btn">EMAIL ME</a>
-        <a href="https://www.linkedin.com/in/p-mirizi/" class="btn" target="_blank">LINKEDIN</a>
+        <a href="https://www.linkedin.com/in/p-mirizi/" class="btn" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
 
         <p style="margin-top: 40px; margin-bottom: 50px; font-size: 1rem;">
             I am committed to maximising the value of my academic investment by fully engaging with the university's professional ecosystem. 
             I have gained extensive proficiency with industry-standard instruments, including <strong>Bloomberg Terminal</strong>, <strong>Statista</strong>, <strong>Fame</strong>, and the <strong>Financial Times</strong>. 
             Utilising these platforms allows me to access reliable data, perform in-depth financial statement analysis, and formulate well-grounded opinions on contemporary economic topics.
-            <img src="bloombergcertificates.png" alt="Using Professional Finance Tools" class="large-feature-pic">
         </p>
-        <p style="margin-top: 0; margin-bottom: 50px; font-size: 1rem;">
-        <p style="margin-top: 0; margin-bottom: 40px; font-size: 1rem;">
-            On a personal level, <strong>I enjoy traveling</strong> and exploring new places. 
-            I recently participated in the departmental Study Trip to Prague, which was a fantastic experience. 
-            I had the chance to attend a lecture on monetary policy at Charles University and take a guided tour of the Skoda factory.
-            It provided a valuable opportunity to learn new things, but also to network with fellow students and the faculty members who led the trip. 
-        </p>
-        
 
-       <p style="margin-top: 0; margin-bottom: 50px; font-size: 1rem;">
+        <img src="bloombergcertificates.png" alt="Using Professional Finance Tools" class="large-feature-pic">
+
+        <p style="margin-top: 0; margin-bottom: 50px; font-size: 1rem;">
             I also pursue personal projects in my spare time. I enjoy using <strong>AI</strong> to accelerate my <strong>Python</strong> coding, which allows me to consolidate and apply the theoretical knowledge acquired during my course. 
             I am currently developing a financial application grounded in academic papers and empirical testing. I then validate these strategies in my practice trading account.
             <br><br>
             Please have a look—I would be happy to receive any feedback!
             <br><br>
-            <a href="My_finance_program_sp500andBTC.html" class="btn" target="_blank"></strong> VIEW MY PROJECT </strong></a>
+            <a href="My_finance_program_sp500andBTC.html" class="btn" target="_blank" rel="noopener noreferrer">VIEW MY PROJECT</a>
         </p>
+
         <p style="margin-top: 0; margin-bottom: 60px; font-size: 1rem;">
             I define myself as a perpetual learner, constantly seeking to expand my horizons. 
             I am <strong>bilingual</strong> (English/Italian) and plan to acquire additional languages after graduation to further broaden my global perspective. 
             I deeply value diverse viewpoints and alternative approaches to <strong>problem-solving</strong>. I believe that a broad base of knowledge fosters innovation and allows me to think outside the box.
             <br><br>
             Recently, I have dedicated myself to mastering <strong>Generative AI</strong> workflows, aiming to harness the full potential of what I believe to be the defining productivity enhancement of the 21st century.
-             <img src="santander_course___skills_for_work.png" alt="Santander Cert" class="large-feature-pic">
         </p>
-        <a href="mailto:pmirizi@yahoo.com" class="btn">EMAIL ME</a>
-        <a href="https://www.linkedin.com/in/p-mirizi/" class="btn" target="_blank">LINKEDIN</a>
-                <div class="footer">
-            &copy; 2026 Pierpaolo Mirizi. All Rights Reserved.
-        </div>        
-    </div>
 
+        <img src="santander_course___skills_for_work.png" alt="Santander Cert" class="large-feature-pic">
+
+        <a href="mailto:pmirizi@yahoo.com" class="btn">EMAIL ME</a>
+        <a href="https://www.linkedin.com/in/p-mirizi/" class="btn" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+
+        <div class="footer">
+            &copy; 2026 Pierpaolo Mirizi. All Rights Reserved.
+        </div>
+    </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
