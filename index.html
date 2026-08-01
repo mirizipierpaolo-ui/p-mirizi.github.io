@@ -218,6 +218,44 @@
         padding: 2rem 1rem 3rem;
       }
     }
+
+    .projects-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .project-card {
+      margin: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: 0.75rem;
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 10px;
+      background: #f8f8f8;
+    }
+    
+    @media (max-width: 700px) {
+      .projects-gallery {
+        grid-template-columns: 1fr;
+      }
+    
+      .project-image {
+        height: auto;
+        max-height: 320px;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -359,6 +397,66 @@
 
         <div class="button-group">
           <a href="My_finance_program_sp500andBTC.html" class="btn" target="_blank" rel="noopener noreferrer">View My Project</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="projects-title">
+        <h2 class="section-title" id="projects-title">University Projects</h2>
+      
+        <p class="text-block">
+          During my time at university, I have worked on many projects, and I am proud to showcase some of them here.
+          I have especially enjoyed researching and compiling summary reports, where I have been able to demonstrate my analytical and critical thinking.
+          Most of all, I enjoy data analytics because these projects have given me the opportunity to develop my own perspective on what the data is telling me.
+        </p>
+      
+        <div class="projects-gallery" role="group" aria-label="Screenshots of university projects">
+          <figure class="project-card">
+            <img
+              src="Analytics.png"
+              alt="Analytics project screenshot"
+              class="project-image"
+              width="900"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+      
+          <figure class="project-card">
+            <img
+              src="climate_fin.png"
+              alt="Climate finance project screenshot"
+              class="project-image"
+              width="900"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+      
+          <figure class="project-card">
+            <img
+              src="intesasanpaolo.png"
+              alt="Intesa Sanpaolo project screenshot"
+              class="project-image"
+              width="900"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
+      
+          <figure class="project-card">
+            <img
+              src="project_example.png"
+              alt="Project example screenshot"
+              class="project-image"
+              width="900"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            >
+          </figure>
         </div>
       </section>
 
