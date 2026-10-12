@@ -5,485 +5,514 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pierpaolo Mirizi | Digital Finance</title>
   <meta name="description" content="Portfolio page for Pierpaolo Mirizi, Banking and Digital Finance student at the University of Sussex.">
+  <meta name="theme-color" content="#0f4c3a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fbfbfb;
-      --text: #333333;
-      --heading: #2c3e50;
-      --muted: #7f8c8d;
+      --bg: #f7f8f6;
+      --surface: #ffffff;
+      --text: #2b3236;
+      --heading: #14231d;
+      --muted: #66736d;
       --primary: #0f4c3a;
-      --primary-light: #e8f5e9;
-      --border: #e6e6e6;
-      --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      --radius: 12px;
+      --primary-strong: #0a3629;
+      --primary-light: #e3f1e8;
+      --accent: #c9a24b;
+      --border: #e3e7e3;
+      --shadow: 0 1px 2px rgba(16,40,30,.06), 0 8px 24px rgba(16,40,30,.08);
+      --shadow-hover: 0 2px 4px rgba(16,40,30,.08), 0 16px 36px rgba(16,40,30,.14);
+      --radius: 16px;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1512;
+        --surface: #16201b;
+        --text: #d5dcd8;
+        --heading: #f1f5f2;
+        --muted: #93a29a;
+        --primary: #6fcf9e;
+        --primary-strong: #8fe0b7;
+        --primary-light: #1b2c24;
+        --accent: #d9b865;
+        --border: #263229;
+        --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+        --shadow-hover: 0 2px 4px rgba(0,0,0,.5), 0 16px 36px rgba(0,0,0,.5);
+      }
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
     body {
       margin: 0;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
-      font-family: 'Lato', sans-serif;
+      font-family: var(--sans);
       line-height: 1.7;
+      font-size: 1.0625rem;
+      -webkit-font-smoothing: antialiased;
     }
+    img { max-width: 100%; display: block; }
+    a { color: var(--primary); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
-    .page {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
-      text-align: center;
+    .skip-link {
+      position: absolute; left: 1rem; top: -4rem;
+      background: var(--primary); color: #fff; padding: .6rem 1rem; border-radius: 8px; z-index: 100;
     }
+    .skip-link:focus { top: 1rem; }
 
-    .profile-pic {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      object-position: 50% 20%;
-      border-radius: 50%;
-      border: 6px solid var(--primary-light);
-      margin: 0 auto 1.5rem;
-      box-shadow: var(--shadow);
-      display: block;
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: saturate(1.4) blur(12px);
+      -webkit-backdrop-filter: saturate(1.4) blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-
-    h1, h2, h3 {
-      color: var(--heading);
-      margin-top: 0;
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 1rem; }
+    .brand { font-family: var(--serif); font-weight: 700; color: var(--heading); text-decoration: none; font-size: 1.1rem; white-space: nowrap; }
+    .nav-links { display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: .88rem; font-weight: 500;
+      padding: .4rem .8rem; border-radius: 999px; white-space: nowrap; transition: .2s;
     }
+    .nav-links a:hover { color: var(--primary); background: var(--primary-light); }
+    .nav-links a.active { color: var(--primary); background: var(--primary-light); font-weight: 600; }
 
+    /* ---------- Hero ---------- */
+    .hero { padding: 4.5rem 0 3.5rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--primary); background: var(--primary-light); padding: .4rem .85rem; border-radius: 999px;
+    }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
     h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -1px;
+      font-family: var(--serif); color: var(--heading);
+      font-size: clamp(2.4rem, 5.5vw, 3.7rem); line-height: 1.08; letter-spacing: -.02em;
+      margin: 1.1rem 0 .6rem;
     }
-    
-    .section-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--primary);
-      margin-bottom: 1rem;
-      font-weight: 700;
+    .role { color: var(--muted); font-size: 1.05rem; margin: 0 0 1.5rem; }
+    .lead { font-size: 1.1rem; max-width: 56ch; margin: 0 0 2rem; }
+    .hero-photo { position: relative; justify-self: center; }
+    .hero-photo::before {
+      content: ""; position: absolute; inset: -14px; border-radius: 50%;
+      background: conic-gradient(from 200deg, var(--primary), var(--accent), var(--primary-light), var(--primary));
+      opacity: .35; filter: blur(18px);
     }
-
-    .subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 2rem;
+    .profile-pic {
+      position: relative; width: min(320px, 70vw); aspect-ratio: 1; object-fit: cover; object-position: 50% 20%;
+      border-radius: 50%; border: 6px solid var(--surface); box-shadow: var(--shadow);
     }
 
-    .subtitle span {
-      display: inline-block;
-      margin-top: 0.35rem;
-      font-size: 0.9em;
-      opacity: 0.85;
-    }
+    .stats { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .stat strong { display: block; font-family: var(--serif); font-size: 1.5rem; color: var(--heading); line-height: 1.2; }
+    .stat span { font-size: .85rem; color: var(--muted); }
 
-    .lead,
-    .text-block {
-      font-size: 1rem;
-      margin: 0 auto 2rem;
-      max-width: 65ch;
-    }
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.625rem;
-    }
-
-    .skill-chip {
-      background-color: var(--primary-light);
-      color: var(--primary);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .feature-image {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      margin: 1.5rem auto;
-      box-shadow: var(--shadow);
-      display: block;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
+    /* ---------- Buttons ---------- */
+    .button-group { display: flex; flex-wrap: wrap; gap: .75rem; }
     .btn {
-      display: inline-block;
-      text-decoration: none;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      transition: 0.3s ease;
+      display: inline-flex; align-items: center; gap: .5rem; text-decoration: none;
+      padding: .8rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .95rem;
+      border: 2px solid var(--primary); color: var(--primary); background: transparent;
+      transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn-primary { background: var(--primary); color: var(--bg); }
+    .btn-primary:hover { background: var(--primary-strong); border-color: var(--primary-strong); }
+    .btn-ghost:hover { background: var(--primary-light); }
+
+    /* ---------- Sections ---------- */
+    section { padding: 4rem 0; }
+    section.alt { background: color-mix(in srgb, var(--primary-light) 45%, var(--bg)); }
+    .section-head { margin-bottom: 2rem; max-width: 62ch; }
+    .kicker { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 .4rem; }
+    h2 { font-family: var(--serif); color: var(--heading); font-size: clamp(1.7rem, 3.5vw, 2.3rem); line-height: 1.2; margin: 0 0 .75rem; letter-spacing: -.01em; }
+    h3 { font-family: var(--serif); color: var(--heading); font-size: 1.2rem; margin: 0 0 .4rem; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .prose p { max-width: 68ch; margin: 0 0 1.1rem; }
+
+    /* Skills */
+    .skills { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .chip {
+      background: var(--surface); border: 1px solid var(--border); color: var(--heading);
+      padding: .55rem 1rem; border-radius: 999px; font-size: .9rem; font-weight: 500;
+      transition: .2s;
+    }
+    .chip:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+
+    /* Cards & grids */
+    .grid { display: grid; gap: 1.25rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+
+    .card {
+      margin: 0; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .card.zoomable { cursor: zoom-in; }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .card img { width: 100%; height: 240px; object-fit: cover; object-position: top center; background: var(--primary-light); }
+    .card img.contain { object-fit: contain; padding: .5rem; }
+    .card figcaption { padding: .9rem 1.1rem 1.1rem; font-size: .9rem; color: var(--muted); }
+    .card figcaption strong { display: block; color: var(--heading); font-size: 1rem; margin-bottom: .1rem; }
+    .zoom-btn { all: unset; display: block; width: 100%; cursor: zoom-in; }
+    .zoom-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+
+    .photo-frame { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .photo-frame img { width: 100%; height: auto; }
+
+    /* Trip timeline cards */
+    .trip { padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .trip .tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); background: var(--primary-light); padding: .25rem .6rem; border-radius: 6px; margin-bottom: .7rem; }
+    .trip p { margin: 0 0 .8rem; font-size: .98rem; }
+    .trip ul { margin: 0; padding-left: 1.1rem; font-size: .95rem; color: var(--muted); }
+
+    /* Tools list */
+    .tools { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.5rem; padding: 0; list-style: none; }
+    .tools li { font-size: .85rem; font-weight: 600; padding: .35rem .8rem; background: var(--primary-light); color: var(--primary); border-radius: 6px; }
+
+    /* Featured project */
+    .feature {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong)); color: #fff;
+      border-radius: 20px; padding: 2.25rem; box-shadow: var(--shadow);
+    }
+    :root .feature h2 { color: #fff; margin-bottom: .5rem; }
+    .feature p { margin: 0; max-width: 52ch; opacity: .92; }
+    .feature .kicker { color: #f0d890; }
+    .feature .btn { background: #fff; color: #0f4c3a; border-color: #fff; }
+    .feature .btn:hover { background: #f0d890; border-color: #f0d890; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .section-head { margin-inline: auto; }
+    .contact .button-group { justify-content: center; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 0 2.5rem; font-size: .85rem; color: var(--muted); text-align: center; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center;
+      background: rgba(5,12,9,.88); padding: 1.5rem; cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(1100px, 100%); max-height: 90vh; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5); background: #fff; }
+    .lightbox button {
+      position: absolute; top: 1rem; right: 1rem; width: 44px; height: 44px; border-radius: 50%;
+      border: 0; background: #fff; color: #111; font-size: 1.4rem; cursor: pointer;
     }
 
-    .btn:hover,
-    .btn:focus-visible {
-      background-color: var(--primary);
-      color: #ffffff;
-    }
-    .rep-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-      align-items: start;
-    }
-    
-    .rep-card {
-      margin: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      padding: 0.75rem;
-    }
-    
-    .rep-image {
-      width: 100%;
-      height: 320px;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 10px;
-      background: #f8f8f8;
-    }
-    
-    @media (max-width: 700px) {
-      .rep-gallery {
-        grid-template-columns: 1fr;
-      }
-    
-      .rep-image {
-        height: auto;
-        max-height: 320px;
-      }
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .card, .btn, .chip { transition: none; }
     }
 
-    footer {
-      margin-top: 4rem;
-      border-top: 1px solid var(--border);
-      padding-top: 1.25rem;
-      font-size: 0.8rem;
-      color: #999999;
-      letter-spacing: 1px;
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero { padding: 2.5rem 0 2rem; }
+      .hero-grid, .split { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-photo { order: -1; }
+      .profile-pic { width: 200px; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      section { padding: 3rem 0; }
     }
-
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      .page {
-        padding: 2rem 1rem 3rem;
-      }
+      .container { padding: 0 1.1rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .brand { display: none; }
+      .btn { width: 100%; justify-content: center; }
+      .feature { padding: 1.5rem; }
     }
-
-    .projects-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .project-card {
-      margin: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      padding: 0.75rem;
-    }
-    
-    .project-image {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      object-position: top center;
-      border-radius: 10px;
-      background: #f8f8f8;
-    }
-    
-    @media (max-width: 700px) {
-      .projects-gallery {
-        grid-template-columns: 1fr;
-      }
-    
-      .project-image {
-        height: auto;
-        max-height: 320px;
-      }
-    }
-    
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="section">
-      <img src="profile.PNG" alt="Portrait of Pierpaolo Mirizi" class="profile-pic" width="220" height="220">
+  <a href="#main" class="skip-link">Skip to content</a>
 
-      <h1>Pierpaolo Mirizi</h1>
-      <p class="subtitle">
-        Business School Student<br>
-        <span>BSc (Hons) Banking &amp; Digital Finance</span>
-      </p>
+  <nav class="nav" aria-label="Main">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Pierpaolo Mirizi</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#travel">Travel</a>
+        <a href="#tools">Tools</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-      <p class="lead">
-        Hi! I am a self-taught finance enthusiast and recently chose to formalise my skills at the University of Sussex Business School.
-        As a motivated and energetic student, I am determined to deepen my technical knowledge, strengthen my communication skills, and use digital finance to support a more equal society.
-        My main priority is to democratise financial literacy and use technology to help marginalised groups access financial tools that can enhance their potential.
-      </p>
-    </header>
-
-    <main>
-      <section class="section">
-        <h2 class="section-title">My value proposition</h2>
-        <div class="skills-container">
-          <span class="skill-chip">Technology Literacy</span>
-          <span class="skill-chip">Analytical Thinking</span>
-          <span class="skill-chip">Creative Thinking</span>
-          <span class="skill-chip">Leadership</span>
-          <span class="skill-chip">Teamwork</span>
-          <span class="skill-chip">Adaptability</span>
-          <span class="skill-chip">AI and Data Savvy</span>
-          <span class="skill-chip">ESG Awareness</span>
-        </div>
-      </section>
-
-      <section class="section">
-        <img src="action.PNG" alt="Pierpaolo in a professional setting" class="feature-image" width="500" height="333" loading="lazy">
-
-        <p class="text-block">
-          Alongside my studies, I work part-time as a Team Leader in hospitality, where I continue to develop leadership and time-management skills.
-          I am actively seeking work experience related to finance and digital business, and while I cannot relocate due to family commitments, I am available to commute.
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">University of Sussex Business School</span>
+        <h1>Pierpaolo Mirizi</h1>
+        <p class="role">BSc (Hons) Banking &amp; Digital Finance</p>
+        <p class="lead">
+          Self-taught finance enthusiast, now formalising my skills at Sussex. I want to use digital finance to
+          democratise financial literacy and help marginalised groups access tools that unlock their potential.
         </p>
-
-        <p class="text-block">
-          I also serve as Student Representative for my cohort for the second year in a row, acting as a link between students and faculty while strengthening my negotiation and public speaking skills.
-          This has been a great opportunity to network with fellow student reps and play an active role within the Business School. As well as having the opportunity to give feedback to the module Director and contribute to bring changes that will benefit students. 
-        </p>
-        
-        <div class="rep-gallery" role="group" aria-label="Student representative certificates">
-          <figure class="rep-card">
-            <img
-              src="certificate.png"
-              alt="Student representative certificate"
-              class="rep-image"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-        
-          <figure class="rep-card">
-            <img
-              src="rep_two.png"
-              alt="Second student representative certificate"
-              class="rep-image"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-        </div>
-        </section>
-
-      <section class="section" aria-labelledby="travel-title">
-        <h2 class="section-title" id="travel-title">Travel and Learning</h2>
-      
-        <p class="text-block">
-          I enjoy travelling and exploring new places; learning about culture and history is especially interesting to me, and it helps me see the world from a different perspective.
-          On my first-year school trip, I visited Prague. Among the highlights were the Skoda factory, where we had a firsthand look at the car production process, and Charles University, where we attended a lecture on local monetary policy.
-          In my second year, I visited Warsaw, one of the fastest-growing economies in Europe, and I was very excited to experience Poland.
-          During the trip, we had the opportunity to visit Givaudan, the world’s largest company in the flavour and fragrance industry, where we met the CEO for an in-depth introduction to the business. It was fascinating to find out that a company 
-          I had never heard of before plays such an important role in so many of the food products we see in shops.
-          These have been memorable experiences, giving us the chance to relax and socialise with fellow students as well as students from another country.
-        </p>
-      
-        <img
-          src="prague_sceenshot.png"
-          alt="Study trip to Prague, including a visit to Charles University and the Skoda factory"
-          class="feature-image"
-          width="900"
-          height="600"
-          loading="lazy"
-          decoding="async"
-        >
-      
-        <img
-          src="warsaw_certificate.png"
-          alt="Warsaw study trip certificate"
-          class="feature-image"
-          width="900"
-          height="600"
-          loading="lazy"
-          decoding="async"
-        >
-      </section>
-
-      <section class="section">
-        <p class="text-block">
-          I have developed strong familiarity with tools such as Bloomberg Terminal, Statista, Office Package, Fame, and the Financial Times, which support my financial analysis and research work.
-        </p>
-      
-        <img
-          src="bloombergcertificates.png"
-          alt="Certificates and finance tools"
-          class="feature-image"
-          width="900"
-          height="600"
-          loading="lazy"
-          decoding="async"
-        >
-      
-        <img
-          src="Excel_two.png"
-          alt="Excel and finance coursework"
-          class="feature-image"
-          width="900"
-          height="600"
-          loading="lazy"
-          decoding="async"
-        >
-      </section>
-      <section class="section">
-        <p class="text-block">
-          In my spare time, I work on personal projects and use AI to support my Python coding and financial research.
-          I am currently developing a finance application based on academic ideas and practical testing.
-        </p>
-
         <div class="button-group">
-          <a href="My_finance_program_sp500andBTC.html" class="btn" target="_blank" rel="noopener noreferrer">View My Project</a>
+          <a href="#projects" class="btn btn-primary">View my work</a>
+          <a href="mailto:pmirizi@yahoo.com" class="btn btn-ghost">Get in touch</a>
         </div>
-      </section>
+        <div class="stats">
+          <div class="stat"><strong>2×</strong><span>Student Representative</span></div>
+          <div class="stat"><strong>EN · IT</strong><span>Fluent bilingual</span></div>
+          <div class="stat"><strong>2</strong><span>Study trips abroad</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="profile.PNG" alt="Portrait of Pierpaolo Mirizi" class="profile-pic" width="320" height="320">
+      </div>
+    </div>
+  </header>
 
-      <section class="section" aria-labelledby="projects-title">
-        <h2 class="section-title" id="projects-title">University Projects</h2>
-      
-        <p class="text-block">
-          During my time at university, I have worked on many projects, and I am proud to showcase some of them here.
-          I have especially enjoyed researching and compiling summary reports, where I have been able to demonstrate my analytical and critical thinking.
-          Most of all, I enjoy data analytics because these projects have given me the opportunity to develop my own perspective on what the data is telling me.
-        </p>
-      
-        <div class="projects-gallery" role="group" aria-label="Screenshots of university projects">
-          <figure class="project-card">
-            <img
-              src="Analytics.png"
-              alt="Analytics project screenshot"
-              class="project-image"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            >
+  <main id="main">
+    <section id="about" class="alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">About me</p>
+          <h2>My value proposition</h2>
+        </div>
+        <div class="skills reveal">
+          <span class="chip">Technology Literacy</span>
+          <span class="chip">Analytical Thinking</span>
+          <span class="chip">Creative Thinking</span>
+          <span class="chip">Leadership</span>
+          <span class="chip">Teamwork</span>
+          <span class="chip">Adaptability</span>
+          <span class="chip">AI and Data Savvy</span>
+          <span class="chip">ESG Awareness</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="split">
+          <div class="prose reveal">
+            <p class="kicker">Experience</p>
+            <h2>Leading, representing, learning</h2>
+            <p>
+              Alongside my studies I work part-time as a <strong>Team Leader in hospitality</strong>, developing
+              leadership and time-management skills. I am actively seeking work experience in finance and digital
+              business. I can't relocate due to family commitments, but I'm available to commute.
+            </p>
+            <p>
+              I serve as <strong>Student Representative</strong> for my cohort for the second year running, acting as the
+              link between students and faculty. It has sharpened my negotiation and public speaking, let me network with
+              fellow reps, and given me the chance to feed back to the module Director and help bring about changes that
+              benefit students.
+            </p>
+          </div>
+          <div class="photo-frame reveal">
+            <img src="action.PNG" alt="Pierpaolo in a professional setting" width="500" height="333" loading="lazy">
+          </div>
+        </div>
+
+        <div class="grid grid-2 reveal" style="margin-top:2.5rem" role="group" aria-label="Student representative certificates">
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge student representative certificate">
+              <img src="certificate.png" alt="Student representative certificate" class="contain" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Student Representative</strong>Year 1 certificate</figcaption>
           </figure>
-      
-          <figure class="project-card">
-            <img
-              src="climate_fin.png"
-              alt="Climate finance project screenshot"
-              class="project-image"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-      
-          <figure class="project-card">
-            <img
-              src="intesasanpaolo.png"
-              alt="Intesa Sanpaolo project screenshot"
-              class="project-image"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            >
-          </figure>
-      
-          <figure class="project-card">
-            <img
-              src="project_example.png"
-              alt="Project example screenshot"
-              class="project-image"
-              width="900"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            >
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge second student representative certificate">
+              <img src="rep_two.png" alt="Second student representative certificate" class="contain" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Student Representative</strong>Year 2 certificate</figcaption>
           </figure>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section">
-        <p class="text-block">
-          I see myself as a lifelong learner. I am bilingual: fluent in English and Italian, value different perspectives, and have recently focused on learning how to use Generative AI to improve workflows.
-        </p>
+    <section id="travel" class="alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Travel &amp; learning</p>
+          <h2>Seeing finance in the real world</h2>
+          <p>Travel helps me see the world from a different perspective, and culture and history fascinate me.</p>
+        </div>
 
-        <img
-          src="santander_course___skills_for_work.png"
-          alt="Santander skills certificate"
-          class="feature-image"
-          width="900"
-          height="600"
-          loading="lazy"
-        >
+        <div class="grid grid-2">
+          <article class="trip reveal">
+            <span class="tag">Year 1 · Prague</span>
+            <h3>Škoda &amp; Charles University</h3>
+            <p>A first-hand look at the car production process at the Škoda factory, plus a lecture on local monetary policy at Charles University.</p>
+          </article>
+          <article class="trip reveal">
+            <span class="tag">Year 2 · Warsaw</span>
+            <h3>Givaudan</h3>
+            <p>Visited one of Europe's fastest-growing economies and Givaudan, the world's largest flavour and fragrance company, where we met the CEO. A company I'd never heard of plays a huge role in products we see on shop shelves.</p>
+          </article>
+        </div>
 
-        <div class="button-group">
-          <a href="mailto:pmirizi@yahoo.com" class="btn">Email Me</a>
+        <div class="grid grid-2 reveal" style="margin-top:1.25rem">
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge Prague trip image">
+              <img src="prague_sceenshot.png" alt="Study trip to Prague, including a visit to Charles University and the Skoda factory" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Prague</strong>Study trip highlights</figcaption>
+          </figure>
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge Warsaw certificate">
+              <img src="warsaw_certificate.png" alt="Warsaw study trip certificate" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Warsaw</strong>Study trip certificate</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Skills &amp; tools</p>
+          <h2>Financial analysis toolkit</h2>
+          <p>Familiar tools that support my financial analysis and research work.</p>
+        </div>
+        <ul class="tools reveal">
+          <li>Bloomberg Terminal</li><li>Statista</li><li>Office Package</li><li>Fame</li><li>Financial Times</li>
+        </ul>
+        <div class="grid grid-2 reveal">
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge Bloomberg certificates">
+              <img src="bloombergcertificates.png" alt="Certificates and finance tools" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Bloomberg</strong>Certificates</figcaption>
+          </figure>
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge Excel coursework">
+              <img src="Excel_two.png" alt="Excel and finance coursework" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Excel</strong>Finance coursework</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="alt">
+      <div class="container">
+        <div class="feature reveal">
+          <div>
+            <p class="kicker">Personal project</p>
+            <h2>S&amp;P 500 &amp; BTC finance application</h2>
+            <p>In my spare time I use AI to support my Python coding and financial research. I'm currently developing a finance application based on academic ideas and practical testing.</p>
+          </div>
+          <a href="My_finance_program_sp500andBTC.html" class="btn" target="_blank" rel="noopener noreferrer">View my project &rarr;</a>
+        </div>
+
+        <div class="section-head reveal" style="margin-top:4rem">
+          <p class="kicker">University work</p>
+          <h2>University projects</h2>
+          <p>I enjoy researching and compiling summary reports, and most of all data analytics, where I get to develop my own perspective on what the data is telling me.</p>
+        </div>
+
+        <div class="grid grid-2 reveal" role="group" aria-label="Screenshots of university projects">
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge analytics project">
+              <img src="Analytics.png" alt="Analytics project screenshot" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Analytics</strong>Data analysis project</figcaption>
+          </figure>
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge climate finance project">
+              <img src="climate_fin.png" alt="Climate finance project screenshot" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Climate finance</strong>Research report</figcaption>
+          </figure>
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge Intesa Sanpaolo project">
+              <img src="intesasanpaolo.png" alt="Intesa Sanpaolo project screenshot" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Intesa Sanpaolo</strong>Company analysis</figcaption>
+          </figure>
+          <figure class="card zoomable">
+            <button class="zoom-btn" data-zoom aria-label="Enlarge project example">
+              <img src="project_example.png" alt="Project example screenshot" width="900" height="600" loading="lazy" decoding="async">
+            </button>
+            <figcaption><strong>Project example</strong>Coursework</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Lifelong learner</p>
+          <h2>Let's connect</h2>
+          <p>I'm fluent in English and Italian, value different perspectives, and have recently focused on using Generative AI to improve workflows.</p>
+        </div>
+        <figure class="card zoomable reveal" style="max-width:560px;margin:0 auto 2rem">
+          <button class="zoom-btn" data-zoom aria-label="Enlarge Santander certificate">
+            <img src="santander_course___skills_for_work.png" alt="Santander skills certificate" class="contain" width="900" height="600" loading="lazy">
+          </button>
+          <figcaption><strong>Santander</strong>Skills for Work course</figcaption>
+        </figure>
+        <div class="button-group reveal">
+          <a href="mailto:pmirizi@yahoo.com" class="btn btn-primary">Email me</a>
           <a href="https://www.linkedin.com/in/p-mirizi/" class="btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      &copy; 2026 Pierpaolo Mirizi. All Rights Reserved.
-    </footer>
+  <footer>&copy; 2026 Pierpaolo Mirizi. All rights reserved.</footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <button type="button" aria-label="Close">&times;</button>
+    <img alt="">
   </div>
+
+  <script>
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    let lastFocus;
+    document.querySelectorAll('[data-zoom]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const img = btn.querySelector('img');
+        lbImg.src = img.src; lbImg.alt = img.alt;
+        lastFocus = btn; lb.classList.add('open');
+        lb.querySelector('button').focus();
+      });
+    });
+    const closeLb = () => { lb.classList.remove('open'); lastFocus && lastFocus.focus(); };
+    lb.addEventListener('click', closeLb);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Active nav link
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(a => { const s = document.querySelector(a.getAttribute('href')); s && spy.observe(s); });
+  </script>
 </body>
 </html>
